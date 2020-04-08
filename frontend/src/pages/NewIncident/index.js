@@ -18,7 +18,7 @@ export default function NewIncident() {
   const ongId = localStorage.getItem('ongId'); // Variaveis da sessão
 
   async function handleNewIncident(e) {
-    e.PreventDefault(); // Previne que toda a página seja atualizada
+    e.preventDefault(); // Previne que toda a página seja atualizada
     
     const data = {
       title,
@@ -70,8 +70,7 @@ export default function NewIncident() {
           <input 
              placeholder="Valor em reais" 
              value={value}
-             onChange={e => setValue(e.target.value)}
-          />
+             onChange={e => setValue(e.target.value)}/>
 
           <button className="button" type="submit">Cadastrar</button>
 
