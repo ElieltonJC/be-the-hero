@@ -1,5 +1,6 @@
-const cors = require('cors');
 const express = require('express');
+const cors = require('cors');
+const { errors } = require('celebrate');
 const routes = require('./routes');
 
 const app = express();
@@ -9,7 +10,10 @@ app.use(cors());
 // Utilizando JSON, deve ser declarado antes das requisições/métodos GET/POST
 app.use(express.json());
 app.use(routes);
+// Validações
+app.use(errors()); 
 
+module.exports = app;
 
 
 // app.get('/',  (request, response) => {  
@@ -74,4 +78,5 @@ app.use(routes);
 //     });
 // }); 
 
-app.listen(3333);
+// Antes de implantar os testes de integração
+//app.listen(3333);
